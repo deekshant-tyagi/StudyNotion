@@ -89,13 +89,11 @@ exports.capturePayment = async (req, res) => {
     console.log("Error details:", error);
     console.log("Error message:", error.message);
     console.log("Error response:", error.response?.data);
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Could not initiate order.",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Could not initiate order.",
+      error: error.message,
+    });
   }
 };
 
@@ -169,12 +167,10 @@ exports.sendPaymentSuccessEmail = async (req, res) => {
 // enroll the student in the courses
 const enrollStudents = async (courses, userId, res) => {
   if (!courses || !userId) {
-    return res
-      .status(400)
-      .json({
-        success: false,
-        message: "Please Provide Course ID and User ID",
-      });
+    return res.status(400).json({
+      success: false,
+      message: "Please Provide Course ID and User ID",
+    });
   }
 
   for (const courseId of courses) {
