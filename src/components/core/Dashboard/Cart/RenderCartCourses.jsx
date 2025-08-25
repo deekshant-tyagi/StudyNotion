@@ -1,13 +1,14 @@
-import { FaStar } from "react-icons/fa"
-import { RiDeleteBin6Line } from "react-icons/ri"
-import ReactStars from "react-rating-stars-component"
-import { useDispatch, useSelector } from "react-redux"
+import { FaStar } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import ReactStars from "react-rating-stars-component";
+import { useDispatch, useSelector } from "react-redux";
 
-import { removeFromCart } from "../../../../slices/cartSlice"
+import { removeFromCart } from "../../../../slices/cartSlice";
+import GetAvgRating from "../../../../utils/avgRating";
 
 export default function RenderCartCourses() {
-  const { cart } = useSelector((state) => state.cart)
-  const dispatch = useDispatch()
+  const { cart } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-1 flex-col">
       {cart.map((course, indx) => (
@@ -31,10 +32,12 @@ export default function RenderCartCourses() {
                 {course?.category?.name}
               </p>
               <div className="flex items-center gap-2">
-                <span className="text-yellow-5">4.5</span>
+                <span className="text-yellow-5">
+                  {GetAvgRating(course?.ratingAndReviews) || 0}
+                </span>
                 <ReactStars
                   count={5}
-                  value={course?.ratingAndReviews?.length}
+                  value={GetAvgRating(course?.ratingAndReviews) || 0}
                   size={20}
                   edit={false}
                   activeColor="#ffd700"
@@ -42,7 +45,7 @@ export default function RenderCartCourses() {
                   fullIcon={<FaStar />}
                 />
                 <span className="text-richblack-400">
-                  {course?.ratingAndReviews?.length} Ratings
+                  {course?.ratingAndReviews?.length || 0} Ratings
                 </span>
               </div>
             </div>
@@ -62,5 +65,5 @@ export default function RenderCartCourses() {
         </div>
       ))}
     </div>
-  )
+  );
 }
