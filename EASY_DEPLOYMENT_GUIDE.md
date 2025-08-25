@@ -98,7 +98,7 @@ MAIL_HOST=smtp.gmail.com
 MAIL_USER=your_email@gmail.com
 MAIL_PASS=your_gmail_app_password
 PORT=4000
-FRONTEND_URL=https://your-app-name.netlify.app
+FRONTEND_URL=https://studyn.netlify.app
 ```
 
 ### 4.2 Create Frontend Environment File
@@ -107,7 +107,7 @@ FRONTEND_URL=https://your-app-name.netlify.app
 2. Fill in:
 
 ```env
-REACT_APP_BASE_URL=https://your-backend-name.onrender.com/api/v1
+REACT_APP_BASE_URL=https://studynotion-backend-jw85.onrender.com/api/v1
 ```
 
 ## 📤 Step 5: Upload to GitHub

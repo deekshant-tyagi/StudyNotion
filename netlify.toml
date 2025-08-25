@@ -13,6 +13,8 @@
   NODE_VERSION = "18"
   # Disable treating warnings as errors
   CI = "false"
+  # Backend API URL for production
+  REACT_APP_BASE_URL = "https://studynotion-backend-jw85.onrender.com/api/v1"
 
 # Redirect rules for React Router
 [[redirects]]
